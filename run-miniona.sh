@@ -1,13 +1,18 @@
 #!/bin/bash
 
+#first argument: directory containing passing reads; default ./pass_reads
+#second argument: directory where apps are installed: default ~/apps/
 
 DIR=`pwd`
-PASS_DIR=$DIR/pass_reads
-mkdir $PASS_DIR
-CUR_DIR=$DIR/current_reads
-mkdir $CUR_DIR
+PASS_DIR=$1
+if [ ! -z "$PASS_DIR" ]; then PASS_DIR=$DIR/pass_reads; fi;
+if [ ! -d "$PASS_DIR" ]; then mkdir -p $PASS_DIR; fi;
 
-APPDIR=~/apps
+CUR_DIR=$DIR/current_reads
+if [ ! -d "$CUR_DIR" ]; then mkdir -p $CUR_DIR; fi;
+
+APPDIR=$2
+if [ ! -z "$APPDIR" ]; then APPDIR=~/apps; fi;
 
 PT_BIN=PT_BIN=$APPDIR/poretools/poretools/scripts/poretools
 
