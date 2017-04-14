@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#first argument: directory where apps should be installed; default ~/apps
+
 DIR=`pwd`
 APPDIR=$1
 if [ ! -z "$APPDIR" ]; then APPDIR=~/apps; fi;
