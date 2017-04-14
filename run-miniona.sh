@@ -8,6 +8,8 @@ mkdir $PASS_DIR
 CUR_DIR=$DIR/current_reads
 mkdir $CUR_DIR
 
+PT_BIN=PT_BIN=$APPDIR/poretools/poretools/scripts/poretools
+
 GM_DIR=$APPDIR/MetaGeneMark_linux_64/mgm
 GM_BIN=$GM_DIR/gmhmmp
 GM_MOD=$GM_DIR/MetaGeneMark_v1.mod
@@ -47,7 +49,7 @@ if [[ ! $(ls $CUR_DIR | grep -c '^') -gt 0 ]]; then echo "waiting for data"; sle
  
 #1 get passing reads from poretools
 echo "getting passing reads"
-poretools fasta $CUR_DIR/ > $READ_BATCH.fasta
+$PT_BIN fasta $CUR_DIR/ > $READ_BATCH.fasta
 find $CUR_DIR -type l -delete
 
 #2 call genes

@@ -10,6 +10,11 @@ read -p "Press [Enter] key to continue..."
 
 cd $APPDIR
 
+# install poretools
+echo "installing poretools"
+git clone https://github.com/arq5x/poretools
+
+
 # Install MetaGeneMark
 if [ ! -e $APPDIR/MetaGeneMark_linux_64.tar.gz ]; then echo "You must download MetaGeneMark manually from http://exon.gatech.edu/GeneMark/license_download.cgi into $APPDIR"; exit 0; fi;
 tar xvzf MetaGeneMark_linux_64.tar.gz
