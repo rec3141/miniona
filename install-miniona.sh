@@ -1,12 +1,14 @@
 #!/bin/bash
 
 DIR=`pwd`
-APPDIR=~/apps
-mkdir -p $APPDIR
+APPDIR=$1
+if [ ! -z "$APPDIR" ]; then APPDIR=~/apps; fi;
 
 echo "This will try to install miniona in $APPDIR, if you don't want to install >10Gb of stuff there then quit and edit the script"
 
 read -p "Press [Enter] key to continue..."
+
+if [ ! -d "$APPDIR" ]; then mkdir -p $APPDIR; fi;
 
 cd $APPDIR
 
