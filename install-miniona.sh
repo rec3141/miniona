@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR=`pwd`
-APPDIR=~/scratch/apps
+APPDIR=~/apps
 mkdir -p $APPDIR
 
 echo "This will try to install miniona in $APPDIR, if you don't want to install >10Gb of stuff there then quit and edit the script"
@@ -10,17 +10,16 @@ read -p "Press [Enter] key to continue..."
 
 cd $APPDIR
 
-# install poretools
-echo "installing poretools"
-git clone https://github.com/arq5x/poretools
-
-
 # Install MetaGeneMark
 if [ ! -e $APPDIR/MetaGeneMark_linux_64.tar.gz ]; then echo "You must download MetaGeneMark manually from http://exon.gatech.edu/GeneMark/license_download.cgi into $APPDIR"; exit 0; fi;
 tar xvzf MetaGeneMark_linux_64.tar.gz
 
 #install mgm key
 cp MetaGeneMark*/mgm/gm_key ~/.gm_key
+
+# install poretools
+echo "installing poretools"
+git clone https://github.com/arq5x/poretools
 
 #install diamond
 echo "installing DIAMOND"

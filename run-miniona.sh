@@ -1,12 +1,13 @@
 #!/bin/bash
 
-APPDIR=~/apps
 
 DIR=`pwd`
 PASS_DIR=$DIR/pass_reads
 mkdir $PASS_DIR
 CUR_DIR=$DIR/current_reads
 mkdir $CUR_DIR
+
+APPDIR=~/apps
 
 PT_BIN=PT_BIN=$APPDIR/poretools/poretools/scripts/poretools
 
