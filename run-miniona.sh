@@ -43,7 +43,6 @@ MIN_SINCE=$( echo "$SECONDS_SINCE/60" | bc -l)
 if (( $(echo "$MIN_SINCE>=0" | bc -l ) )); then MIN_SINCE="+"$MIN_SINCE; fi;
 
 SECONDS=0
-#find $PASS_DIR -name "*.fast5" -mmin $MIN_SINCE -exec ln -s {} ./$CUR_DIR/ \;
 find $PASS_DIR -name "*.fast5" -mmin $MIN_SINCE -exec ln -s {} $CUR_DIR/ \;
 
 if [[ ! $(ls $CUR_DIR | grep -c '^') -gt 0 ]]; then echo "waiting for data"; sleep 30; continue; fi;
