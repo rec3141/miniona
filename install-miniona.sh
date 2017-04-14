@@ -35,17 +35,16 @@ echo "about to download 10Gb Refseq complete non-redundant database"
 mkdir -p refseq
 cd refseq
 #389
-for NUM in `seq 1  2`; do
+for NUM in `seq 1  389`; do
 	wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/complete.nonredundant_protein.$NUM.protein.faa.gz
 done;
 
 echo "splitting refseq for input to diamond"
-#split -n l/12 --numeric-suffixes=1 --additional-suffix=.faa <(gunzip -c complete.nonredundant_protein.*.protein.faa.gz) refseq_
 
 awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%5000000==0){file=sprintf("refseq_%d.faa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < <(gunzip -c complete.nonredundant_protein.*.protein.faa.gz)
 
 echo "making diamond database"
-for NUM in `seq 0 11`; do
+for NUM in `seq 0 16`; do
 	$APPDIR/diamond makedb --in refseq_$NUM.faa -d refseq_$NUM
 done;
 
@@ -63,7 +62,7 @@ cd KronaTools-2.7
 echo "installing Krona Taxonomy, this takes a while"
 ./updateTaxonomy.sh
 
-echo "installing Krona Accession, this take a long while"
+echo "installing Krona Accession, this takes a long while"
 ./updateAccessions.sh
 
 cd $DIR
