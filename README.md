@@ -2,6 +2,14 @@
 
 produces real-time Krona plots during a minION run
 
+wget https://github.com/rec3141/miniona/archive/master.zip
+unzip master.zip
+cd master-miniona
+bash ./install-miniona.sh <installation-directory>
+bash ./run-miniona.sh <pass-reads-directory>
+
+view krona plot at index.html
+
 ## pipeline
 
 poretools: convert fast5 to fasta
