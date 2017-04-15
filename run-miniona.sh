@@ -14,7 +14,7 @@ if [ ! -d "$CUR_DIR" ]; then mkdir -p $CUR_DIR; fi;
 APPDIR=$2
 if [ ! -z "$APPDIR" ]; then APPDIR=~/apps; fi;
 
-PT_BIN=PT_BIN=$APPDIR/poretools/poretools/scripts/poretools
+PT_BIN=$APPDIR/poretools/poretools/scripts/poretools
 
 GM_DIR=$APPDIR/MetaGeneMark_linux_64/mgm
 GM_BIN=$GM_DIR/gmhmmp
