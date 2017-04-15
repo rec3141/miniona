@@ -55,7 +55,7 @@ if [[ ! $(ls $CUR_DIR | grep -c '^') -gt 0 ]]; then echo "waiting for data"; sle
 #1 get passing reads from poretools
 echo "getting passing reads"
 $PT_BIN fasta $CUR_DIR/ > $READ_BATCH.fasta
-find $CUR_DIR -type l -delete
+
 
 #2 call genes
 echo "calling genes"
@@ -85,6 +85,7 @@ j=$[j+1]
 
 done;
 
+find $CUR_DIR -type l -delete
 READ_BATCH=$[READ_BATCH + 1]
 
 done
